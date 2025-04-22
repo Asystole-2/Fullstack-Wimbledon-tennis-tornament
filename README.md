@@ -29,7 +29,7 @@ A responsive, Google Maps-based website for tourists visiting Wimbledon during t
 
  Clone the repository:
    ```bash
-   git clone 
+   git clone https://github.com/Asystole-2/Fullstack-Wimbledon-tennis-tornament.git
    npm install
    npm run scss
    ```
@@ -42,14 +42,3 @@ const CONFIG = {
 };
 
 
-## Project Structure
-├── index.html                # Main entry point
-├── scss/                     # All SCSS source files
-├── css/                      # Compiled CSS files
-├── js/                       # JavaScript files
-│   ├── main.js               # Main application logic
-│   ├── map.js                # Google Maps functionality
-│   └── config.js             # API configuration (ignored by git)
-├── data/                     # JSON data files
-├── images/                   # Custom images and markers
-└── manifest.json             # PWA configuration
