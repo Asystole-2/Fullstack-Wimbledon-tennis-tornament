@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "All England Lawn Tennis Club",
+    "type": "stadium",
+    "position": { "lat": 51.4339, "lng": -0.2143 },
+    "address": "Church Rd, Wimbledon, London SW19 5AE, UK",
+    "description": "The prestigious venue for the Wimbledon Championships, the oldest tennis tournament in the world.",
+    "image": "wimbledon.jpg",
+    "price": "£50-£250 per ticket"
+  },
+  {
+    "id": 2,
+    "name": "Wimbledon Lawn Tennis Museum",
+    "type": "attraction",
+    "position": { "lat": 51.4342, "lng": -0.2138 },
+    "address": "Church Rd, Wimbledon, London SW19 5AE, UK",
+    "description": "Explore the history of tennis and Wimbledon through interactive exhibits and memorabilia.",
+    "image": "museum.jpg",
+    "price": "£15 per adult"
+  },
+  {
+    "id": 3,
+    "name": "The Dog & Fox",
+    "type": "restaurant",
+    "position": { "lat": 51.4229, "lng": -0.2065 },
+    "address": "24 High St, Wimbledon, London SW19 5EA, UK",
+    "description": "Traditional British pub serving classic dishes and local ales, popular with tennis fans.",
+    "image": "dogandfox.jpg",
+    "price": "£15-£30 per main"
+  },
+  {
+    "id": 4,
+    "name": "Wimbledon Hotel",
+    "type": "hotel",
+    "position": { "lat": 51.4218, "lng": -0.2082 },
+    "address": "78 Worple Rd, Wimbledon, London SW19 4HZ, UK",
+    "description": "Comfortable hotel just 10 minutes walk from the tennis courts.",
+    "image": "hotel.jpg",
+    "price": "£120 per night"
+  },
+  {
+    "id": 5,
+    "name": "Wimbledon Common",
+    "type": "attraction",
+    "position": { "lat": 51.4264, "lng": -0.2346 },
+    "address": "Wimbledon, London SW19 5NR, UK",
+    "description": "Large open space perfect for walks and picnics away from the tennis crowds.",
+    "image": "common.jpg",
+    "price": "Free"
+  }
+]

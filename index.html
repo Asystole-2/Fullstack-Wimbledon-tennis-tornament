@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wimbledon Tennis Travel Guide</title>
+    <meta name="description" content="Your guide to Wimbledon tennis tournament 2025">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<div id="tm_appContainer">
+    <header id="tm_mainHeader">
+        <h1>Wimbledon 2025 Travel Guide</h1>
+        <div id="tm_languageCurrency">
+            <select id="tm_languageSelect" class="tm_selectBox"></select>
+            <select id="tm_currencySelect" class="tm_selectBox"></select>
+        </div>
+    </header>
+
+    <main id="tm_mainContent">
+        <div class="tm_tabContainer">
+            <div class="tm_tabButtons">
+                <button class="tm_tabButton tm_active" onclick="tm_openTab(event, 'tm_placesTab')">Explore</button>
+                <button class="tm_tabButton" onclick="tm_openTab(event, 'tm_directionsTab')">Plan Route</button>
+            </div>
+
+            <div id="tm_placesTab" class="tm_tabContent tm_active">
+                <div class="tm_filterControls">
+                    <div class="tm_filterGroup">
+                        <label><input type="checkbox" name="tm_placeType" value="stadium" checked> Tennis Venues</label>
+                        <label><input type="checkbox" name="tm_placeType" value="hotel" checked> Hotels</label>
+                        <label><input type="checkbox" name="tm_placeType" value="restaurant" checked> Restaurants</label>
+                        <label><input type="checkbox" name="tm_placeType" value="attraction" checked> Attractions</label>
+                    </div>
+                    <button class="tm_button" onclick="tm_togglePoi()">Toggle Points of Interest</button>
+                </div>
+                <div id="tm_map" class="tm_mapContainer"></div>
+                <div id="tm_locationDetails" class="tm_detailsPanel"></div>
+            </div>
+
+            <div id="tm_directionsTab" class="tm_tabContent">
+                <div class="tm_routeControls">
+                    <div class="tm_routeInput">
+                        <label>Start: <input type="text" id="tm_startPoint" placeholder="Starting location"></label>
+                        <label>End: <input type="text" id="tm_endPoint" placeholder="Destination"></label>
+                    </div>
+                    <div class="tm_transportButtons">
+                        <button class="tm_transportButton" onclick="tm_calculateRoute('DRIVING')"><i class="material-icons">directions_car</i></button>
+                        <button class="tm_transportButton" onclick="tm_calculateRoute('TRANSIT')"><i class="material-icons">directions_bus</i></button>
+                        <button class="tm_transportButton" onclick="tm_calculateRoute('WALKING')"><i class="material-icons">directions_walk</i></button>
+                    </div>
+                    <div id="tm_waypointsContainer" class="tm_waypoints">
+                        <h3>Add Stops:</h3>
+                        <div id="tm_waypointsList"></div>
+                        <button class="tm_button" onclick="tm_addWaypoint()">Add Stop</button>
+                    </div>
+                </div>
+                <div id="tm_directionsMap" class="tm_mapContainer"></div>
+                <div id="tm_directionsPanel" class="tm_directionsPanel"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="tm_mainFooter">
+        <p>&copy; 2025 Wimbledon Travel Guide</p>
+    </footer>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/map.js"></script>
+<script src="js/api.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5HfCfRXgkfskgTg39DWbxr4DZgu0f2xA&loading=async&callback=loadMap&libraries=places&callback=tm_initMap" async defer></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5HfCfRXgkfskgTg39DWbxr4DZgu0f2xA&loading=async&callback=loadMap&libraries=marker,places"></script>-->
+
+<script>
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/Wimbledon/sw.js').then(registration => {
+                console.log('ServiceWorker registration successful');
+            }).catch(err => {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
+</script>
+</body>
+</html>

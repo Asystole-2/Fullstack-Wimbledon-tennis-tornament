@@ -1,0 +1,22 @@
+body {
+  font-family: $tm_mainFont;
+  color: $tm_textColor;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: $tm_headerFont;
+  color: $tm_primaryColor;
+}
+
+a {
+  color: $tm_primaryColor;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
