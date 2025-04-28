@@ -14,11 +14,13 @@
     <header id="tm_mainHeader">
         <h1>Wimbledon 2025 Travel Guide</h1>
     </header>
-    <section id="tm_currency" class="tm_section">
+
+    <div id="google_translate_element"></div>
+    <section class="tm_section">
         <h2>Currency Converter</h2>
         <div class="tm_currencyConverter">
             <div class="tm_inputGroup">
-                <input type="number" id="tm_amount" placeholder="Amount" value="1" min="0">
+                <input type="number" id="tm_amount" placeholder="Amount" value="1">
                 <select id="tm_fromCurrency">
                     <option value="GBP">British Pound (GBP)</option>
                     <option value="USD">US Dollar (USD)</option>
@@ -35,12 +37,10 @@
                     <option value="JPY">Japanese Yen (JPY)</option>
                 </select>
             </div>
-            <button id="tm_convertButton">Convert</button>
-            <div class="tm_conversion-rate"></div>
+            <button class="tm_button" onclick="tm_convertCurrency()">Convert</button>
+            <div class="tm_conversionRate"></div>
         </div>
     </section>
-
-    <div id="google_translate_element"></div>
     <main id="tm_mainContent">
         <div class="tm_tabContainer">
             <div class="tm_tabButtons">
@@ -86,10 +86,6 @@
                 <div id="tm_directionsPanel" class="tm_directionsPanel"></div>
             </div>
         </div>
-        <section id="tm_youtube" class="tm_section">
-            <h2>Wimbledon Videos & Guides</h2>
-            <div id="tm_videoContainer" class="tm_video-grid"></div>
-        </section>
     </main>
 
     <footer id="tm_mainFooter">
@@ -97,20 +93,14 @@
     </footer>
 </div>
 
-<script src="js/main.js"></script>
-<script src="js/map.js"></script>
-<script src="js/api.js"></script>
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5HfCfRXgkfskgTg39DWbxr4DZgu0f2xA&loading=async&callback=loadMap&libraries=places&callback=tm_initMap" async defer></script>-->
+<script src="js/app.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5HfCfRXgkfskgTg39DWbxr4DZgu0f2xA&loading=async&callback=tm_initMap&libraries=places,marker&v=beta"></script>
 <script>
-    // Register Service Worker for PWA
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/Wimbledon/sw.js').then(registration => {
-                console.log('ServiceWorker registration successful');
-            }).catch(err => {
-                console.log('ServiceWorker registration failed: ', err);
-            });
+            navigator.serviceWorker.register('/Wimbledon/sw.js')
+                .then(registration => console.log('ServiceWorker registered'))
+                .catch(err => console.log('ServiceWorker registration failed: ', err));
         });
     }
 </script>
