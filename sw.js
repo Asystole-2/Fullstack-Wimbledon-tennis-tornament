@@ -7,7 +7,7 @@ const urlsToCache = [
     '/js/map.js',
     '/js/api.js',
     '/data/locations.json',
-    '/images/markers/tennis.png',
+    '/images/markers/stadium.png',
     '/images/markers/hotel.png',
     '/images/markers/restaurant.png',
     '/images/markers/attraction.png',

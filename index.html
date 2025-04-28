@@ -13,12 +13,34 @@
 <div id="tm_appContainer">
     <header id="tm_mainHeader">
         <h1>Wimbledon 2025 Travel Guide</h1>
-        <div id="tm_languageCurrency">
-            <select id="tm_languageSelect" class="tm_selectBox"></select>
-            <select id="tm_currencySelect" class="tm_selectBox"></select>
-        </div>
     </header>
+    <section id="tm_currency" class="tm_section">
+        <h2>Currency Converter</h2>
+        <div class="tm_currencyConverter">
+            <div class="tm_inputGroup">
+                <input type="number" id="tm_amount" placeholder="Amount" value="1" min="0">
+                <select id="tm_fromCurrency">
+                    <option value="GBP">British Pound (GBP)</option>
+                    <option value="USD">US Dollar (USD)</option>
+                    <option value="EUR">Euro (EUR)</option>
+                    <option value="JPY">Japanese Yen (JPY)</option>
+                </select>
+            </div>
+            <div class="tm_inputGroup">
+                <input type="number" id="tm_convertedAmount" placeholder="Result" readonly>
+                <select id="tm_toCurrency">
+                    <option value="USD">US Dollar (USD)</option>
+                    <option value="GBP">British Pound (GBP)</option>
+                    <option value="EUR">Euro (EUR)</option>
+                    <option value="JPY">Japanese Yen (JPY)</option>
+                </select>
+            </div>
+            <button id="tm_convertButton">Convert</button>
+            <div class="tm_conversion-rate"></div>
+        </div>
+    </section>
 
+    <div id="google_translate_element"></div>
     <main id="tm_mainContent">
         <div class="tm_tabContainer">
             <div class="tm_tabButtons">
@@ -29,10 +51,13 @@
             <div id="tm_placesTab" class="tm_tabContent tm_active">
                 <div class="tm_filterControls">
                     <div class="tm_filterGroup">
-                        <label><input type="checkbox" name="tm_placeType" value="stadium" checked> Tennis Venues</label>
-                        <label><input type="checkbox" name="tm_placeType" value="hotel" checked> Hotels</label>
-                        <label><input type="checkbox" name="tm_placeType" value="restaurant" checked> Restaurants</label>
-                        <label><input type="checkbox" name="tm_placeType" value="attraction" checked> Attractions</label>
+                        <label><input type="checkbox" name="tm_placeType" value="stadium"> Tennis Venues</label>
+                        <label><input type="checkbox" name="tm_placeType" value="hotel"> Hotels</label>
+                        <label><input type="checkbox" name="tm_placeType" value="restaurant"> Restaurants</label>
+                        <label><input type="checkbox" name="tm_placeType" value="attraction"> Attractions</label>
+                        <button class="tm_button" onclick="tm_toggleAllFilters(true)">Select All</button>
+                        <button class="tm_button" onclick="tm_toggleAllFilters(false)">Deselect All</button>
+                        <button class="tm_button" onclick="tm_centerMap()">Center Map</button>
                     </div>
                     <button class="tm_button" onclick="tm_togglePoi()">Toggle Points of Interest</button>
                 </div>
@@ -61,6 +86,10 @@
                 <div id="tm_directionsPanel" class="tm_directionsPanel"></div>
             </div>
         </div>
+        <section id="tm_youtube" class="tm_section">
+            <h2>Wimbledon Videos & Guides</h2>
+            <div id="tm_videoContainer" class="tm_video-grid"></div>
+        </section>
     </main>
 
     <footer id="tm_mainFooter">
@@ -71,9 +100,8 @@
 <script src="js/main.js"></script>
 <script src="js/map.js"></script>
 <script src="js/api.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5HfCfRXgkfskgTg39DWbxr4DZgu0f2xA&loading=async&callback=loadMap&libraries=places&callback=tm_initMap" async defer></script>
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5HfCfRXgkfskgTg39DWbxr4DZgu0f2xA&loading=async&callback=loadMap&libraries=marker,places"></script>-->
-
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5HfCfRXgkfskgTg39DWbxr4DZgu0f2xA&loading=async&callback=loadMap&libraries=places&callback=tm_initMap" async defer></script>-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5HfCfRXgkfskgTg39DWbxr4DZgu0f2xA&loading=async&callback=tm_initMap&libraries=places,marker&v=beta"></script>
 <script>
     // Register Service Worker for PWA
     if ('serviceWorker' in navigator) {

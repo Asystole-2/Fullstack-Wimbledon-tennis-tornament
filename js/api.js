@@ -1,66 +1,54 @@
-// Currency conversion using ExchangeRate-API
-async function tm_convertCurrency(amount, fromCurrency, toCurrency) {
-    try {
-        // In a real implementation, you would call your backend API
-        // This is a mock implementation
-        const rates = {
-            GBP: { USD: 1.25, EUR: 1.15, JPY: 140, AUD: 1.75 },
-            USD: { GBP: 0.80, EUR: 0.92, JPY: 112, AUD: 1.40 },
-            EUR: { GBP: 0.87, USD: 1.09, JPY: 122, AUD: 1.52 },
-            JPY: { GBP: 0.0071, USD: 0.0089, EUR: 0.0082, AUD: 0.0125 },
-            AUD: { GBP: 0.57, USD: 0.71, EUR: 0.66, JPY: 80 }
-        };
+const YT_API_KEY = 'AIzaSyAo1K49yjUaLP6P0oNoF5q74X7HvdssIy0';
 
-        if (fromCurrency === toCurrency) return amount;
-        return amount * rates[fromCurrency][toCurrency];
+async function tm_loadYouTubeContent() {
+    const container = document.getElementById('tm_videoContainer');
+    container.innerHTML = '<p>Loading videos...</p>';
+
+    try {
+        const response = await fetch(
+            `https://www.googleapis.com/youtube/v3/search?` +
+            `part=snippet&` +
+            `maxResults=6&` +
+            `q=Wimbledon%20tennis%20tournament%20guide&` + // More specific query
+            `type=video&` +
+            `key=${YT_API_KEY}`
+        );
+
+        const data = await response.json();
+
+        if (data.items && data.items.length > 0) {
+            tm_displayVideos(data.items);
+        } else {
+            throw new Error('No videos found');
+        }
+
     } catch (error) {
-        console.error('Currency conversion error:', error);
-        return amount; // Return original amount if conversion fails
+        console.error('YouTube API Error:', error);
+        container.innerHTML = '<p class="tm_error">Error loading video content. Please try again later.</p>';
     }
 }
 
-// Translation using mock API
-async function tm_translateText(text, targetLanguage) {
-    try {
-        // In a real implementation, you would call a translation API
-        // This is a mock implementation with a few basic translations
-        const translations = {
-            french: {
-                'Wimbledon': 'Wimbledon',
-                'Tennis Venues': 'Sites de tennis',
-                'Hotels': 'Hôtels',
-                'Restaurants': 'Restaurants',
-                'Attractions': 'Attractions'
-            },
-            spanish: {
-                'Wimbledon': 'Wimbledon',
-                'Tennis Venues': 'Sedes de tenis',
-                'Hotels': 'Hoteles',
-                'Restaurants': 'Restaurantes',
-                'Attractions': 'Atracciones'
-            }
-        };
+function tm_displayVideos(videos) {
+    const container = document.getElementById('tm_videoContainer');
+    container.innerHTML = ''; // Clear loading state
 
-        return translations[targetLanguage]?.[text] || text;
-    } catch (error) {
-        console.error('Translation error:', error);
-        return text; // Return original text if translation fails
-    }
+    videos.forEach(video => {
+        const videoCard = document.createElement('div');
+        videoCard.className = 'tm_video-card';
+        videoCard.innerHTML = `
+            <iframe src="https://www.youtube.com/embed/${video.id.videoId}" 
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+            <div class="tm_video-info">
+                <div class="tm_video-title">${video.snippet.title}</div>
+                <div class="tm_video-description">${video.snippet.description.substring(0, 100)}...</div>
+            </div>
+        `;
+        container.appendChild(videoCard);
+    });
 }
 
-// Initialize APIs
-function tm_initAPIs() {
-    // Set up currency conversion when currency select changes
-    document.getElementById('tm_currencySelect').addEventListener('change', async (e) => {
-        const selectedCurrency = e.target.value;
-        // Here you would update all prices on the page
-        console.log('Currency changed to:', selectedCurrency);
-    });
-
-    // Set up translation when language select changes
-    document.getElementById('tm_languageSelect').addEventListener('change', async (e) => {
-        const selectedLanguage = e.target.value;
-        // Here you would translate all text on the page
-        console.log('Language changed to:', selectedLanguage);
-    });
+// Initialize in main.js
+export function tm_initYouTube() {
+    tm_loadYouTubeContent();
 }

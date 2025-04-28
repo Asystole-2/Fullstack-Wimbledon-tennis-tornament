@@ -11,6 +11,16 @@
   },
   {
     "id": 2,
+    "name": "Wimbledon Park Golf Club",
+    "type": "stadium",
+    "position": { "lat": 51.4312, "lng": -0.2108 },
+    "address": "Home Park Rd, Wimbledon, London SW19 7HR, UK",
+    "description": "Adjacent to the All England Club with practice facilities used during the Championships.",
+    "image": "wimbledon-park.jpg",
+    "price": "£25-£50 per session"
+  },
+  {
+    "id": 3,
     "name": "Wimbledon Lawn Tennis Museum",
     "type": "attraction",
     "position": { "lat": 51.4342, "lng": -0.2138 },
@@ -20,7 +30,17 @@
     "price": "£15 per adult"
   },
   {
-    "id": 3,
+    "id": 4,
+    "name": "Wimbledon Tennis Academy",
+    "type": "stadium",
+    "position": { "lat": 51.4287, "lng": -0.2203 },
+    "address": "Durnsford Rd, Wimbledon, London SW19 8EW, UK",
+    "description": "Premier tennis training facility with programs for all levels.",
+    "image": "academy.jpg",
+    "price": "£30-£80 per lesson"
+  },
+  {
+    "id": 5,
     "name": "The Dog & Fox",
     "type": "restaurant",
     "position": { "lat": 51.4229, "lng": -0.2065 },
@@ -30,7 +50,7 @@
     "price": "£15-£30 per main"
   },
   {
-    "id": 4,
+    "id": 6,
     "name": "Wimbledon Hotel",
     "type": "hotel",
     "position": { "lat": 51.4218, "lng": -0.2082 },
@@ -40,7 +60,7 @@
     "price": "£120 per night"
   },
   {
-    "id": 5,
+    "id": 7,
     "name": "Wimbledon Common",
     "type": "attraction",
     "position": { "lat": 51.4264, "lng": -0.2346 },
@@ -48,5 +68,185 @@
     "description": "Large open space perfect for walks and picnics away from the tennis crowds.",
     "image": "common.jpg",
     "price": "Free"
+  },
+  {
+    "id": 8,
+    "name": "The Ivy Cafe Wimbledon",
+    "type": "restaurant",
+    "position": { "lat": 51.4215, "lng": -0.2069 },
+    "address": "45 High St, Wimbledon, London SW19 5DB, UK",
+    "description": "Sophisticated all-day dining with British classics and global influences.",
+    "image": "ivy-cafe.jpg",
+    "price": "£25-£50 per main"
+  },
+  {
+    "id": 9,
+    "name": "Wimbledon Village Stables",
+    "type": "attraction",
+    "position": { "lat": 51.4258, "lng": -0.2214 },
+    "address": "24A High St, Wimbledon, London SW19 5DX, UK",
+    "description": "Historic stables offering horse riding lessons and hacks on Wimbledon Common.",
+    "image": "stables.jpg",
+    "price": "£45-£90 per session"
+  },
+  {
+    "id": 10,
+    "name": "The Wimbledon Club",
+    "type": "stadium",
+    "position": { "lat": 51.4251, "lng": -0.2237 },
+    "address": "Church Rd, Wimbledon, London SW19 5AG, UK",
+    "description": "Private members' club with excellent tennis facilities and coaching.",
+    "image": "wimbledon-club.jpg",
+    "price": "Membership required"
+  },
+  {
+    "id": 11,
+    "name": "San Lorenzo Fuoriporta",
+    "type": "restaurant",
+    "position": { "lat": 51.4223, "lng": -0.2071 },
+    "address": "38 High St, Wimbledon, London SW19 5BY, UK",
+    "description": "Authentic Italian cuisine with a modern twist, popular with tennis players.",
+    "image": "san-lorenzo.jpg",
+    "price": "£20-£40 per main"
+  },
+  {
+    "id": 12,
+    "name": "Cannizaro House",
+    "type": "hotel",
+    "position": { "lat": 51.4239, "lng": -0.2334 },
+    "address": "West Side Common, Wimbledon, London SW19 4UE, UK",
+    "description": "Luxury boutique hotel set in beautiful gardens near Wimbledon Common.",
+    "image": "cannizaro.jpg",
+    "price": "£250-£400 per night"
+  },
+  {
+    "id": 13,
+    "name": "Wimbledon Windmill Museum",
+    "type": "attraction",
+    "position": { "lat": 51.4268, "lng": -0.2397 },
+    "address": "Windmill Rd, Wimbledon, London SW19 5NR, UK",
+    "description": "Historic windmill housing a museum about local history and milling.",
+    "image": "windmill.jpg",
+    "price": "£5 per adult"
+  },
+  {
+    "id": 14,
+    "name": "Centre Court Shopping Centre",
+    "type": "attraction",
+    "position": { "lat": 51.4179, "lng": -0.2004 },
+    "address": "Queen's Rd, Wimbledon, London SW19 8YE, UK",
+    "description": "Modern shopping center with high street brands and dining options.",
+    "image": "centre-court.jpg",
+    "price": "Free entry"
+  },
+  {
+    "id": 15,
+    "name": "The Fox and Grapes",
+    "type": "restaurant",
+    "position": { "lat": 51.4246, "lng": -0.2351 },
+    "address": "9 Camp Rd, Wimbledon, London SW19 4UN, UK",
+    "description": "Gastropub serving seasonal British food with a great selection of wines.",
+    "image": "fox-grapes.jpg",
+    "price": "£18-£35 per main"
+  },
+  {
+    "id": 16,
+    "name": "Wimbledon Park Tennis Courts",
+    "type": "stadium",
+    "position": { "lat": 51.4315, "lng": -0.2092 },
+    "address": "Home Park Rd, Wimbledon, London SW19 7HR, UK",
+    "description": "Public tennis courts available for hire near the All England Club.",
+    "image": "park-courts.jpg",
+    "price": "£10-£20 per hour"
+  },
+  {
+    "id": 17,
+    "name": "The Rose and Crown",
+    "type": "restaurant",
+    "position": { "lat": 51.4237, "lng": -0.2082 },
+    "address": "55 High St, Wimbledon, London SW19 5BA, UK",
+    "description": "Traditional pub with a sunny garden and good selection of craft beers.",
+    "image": "rose-crown.jpg",
+    "price": "£12-£25 per main"
+  },
+  {
+    "id": 18,
+    "name": "Wimbledon Theatre",
+    "type": "attraction",
+    "position": { "lat": 51.4173, "lng": -0.2019 },
+    "address": "93 The Broadway, Wimbledon, London SW19 1QG, UK",
+    "description": "Beautiful Edwardian theatre showing plays, musicals and comedy.",
+    "image": "theatre.jpg",
+    "price": "£20-£60 per ticket"
+  },
+  {
+    "id": 19,
+    "name": "The Alexandra",
+    "type": "hotel",
+    "position": { "lat": 51.4182, "lng": -0.2007 },
+    "address": "32 Worple Rd, Wimbledon, London SW19 4EF, UK",
+    "description": "Boutique hotel with stylish rooms close to Wimbledon station.",
+    "image": "alexandra.jpg",
+    "price": "£150-£250 per night"
+  },
+  {
+    "id": 20,
+    "name": "Wimbledon Tennis Bookshop",
+    "type": "attraction",
+    "position": { "lat": 51.4219, "lng": -0.2075 },
+    "address": "40 High St, Wimbledon, London SW19 5AU, UK",
+    "description": "Specialist bookshop with the largest collection of tennis books in the world.",
+    "image": "bookshop.jpg",
+    "price": "Free entry"
+  },
+  {
+    "id": 21,
+    "name": "The White Onion",
+    "type": "restaurant",
+    "position": { "lat": 51.4231, "lng": -0.2078 },
+    "address": "51 High St, Wimbledon, London SW19 5BA, UK",
+    "description": "Modern European cuisine with an emphasis on seasonal ingredients.",
+    "image": "white-onion.jpg",
+    "price": "£25-£45 per main"
+  },
+  {
+    "id": 22,
+    "name": "Wimbledon Park Athletics Track",
+    "type": "stadium",
+    "position": { "lat": 51.4301, "lng": -0.2123 },
+    "address": "Home Park Rd, Wimbledon, London SW19 7HR, UK",
+    "description": "Olympic-standard athletics facility also used for tennis fitness training.",
+    "image": "athletics-track.jpg",
+    "price": "£5-£10 per session"
+  },
+  {
+    "id": 23,
+    "name": "The Crooked Billet",
+    "type": "restaurant",
+    "position": { "lat": 51.4253, "lng": -0.2342 },
+    "address": "14 Crooked Billet, Wimbledon, London SW19 4RQ, UK",
+    "description": "Charming pub with excellent food and a lovely garden area.",
+    "image": "crooked-billet.jpg",
+    "price": "£15-£30 per main"
+  },
+  {
+    "id": 24,
+    "name": "Wimbledon Village Market",
+    "type": "attraction",
+    "position": { "lat": 51.4238, "lng": -0.2089 },
+    "address": "High St, Wimbledon, London SW19 5EE, UK",
+    "description": "Weekly farmers' market with local produce and artisan goods.",
+    "image": "village-market.jpg",
+    "price": "Free entry"
+  },
+  {
+    "id": 25,
+    "name": "The Wimbledon Club Hotel",
+    "type": "hotel",
+    "position": { "lat": 51.4251, "lng": -0.2237 },
+    "address": "Church Rd, Wimbledon, London SW19 5AG, UK",
+    "description": "Hotel attached to the prestigious Wimbledon Club with tennis facilities.",
+    "image": "club-hotel.jpg",
+    "price": "£180-£300 per night"
   }
 ]

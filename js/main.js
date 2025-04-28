@@ -1,19 +1,42 @@
-// Initialize the application
-function tm_initMap() {
-    // Load locations from JSON
-    tm_loadLocations();
+// Global variables
+let tm_locations = [];
 
-    // Initialize language and currency dropdowns
-    tm_initLanguageCurrency();
+// Initialize the application
+async function tm_initMap() {
+    // Initialize Google Translate
+    tm_initGoogleTranslate();
+
+    // Load locations from JSON
+    await tm_loadLocations();
+
 
     // Initialize map
     tm_initMainMap();
     tm_initDirectionsMap();
 
+    tm_initYouTube();
+
     // Set up event listeners
     document.querySelectorAll('input[name="tm_placeType"]').forEach(checkbox => {
         checkbox.addEventListener('change', tm_filterMarkers);
     });
+
+}
+
+// Initialize Google Translate
+function tm_initGoogleTranslate() {
+    const script = document.createElement('script');
+    script.src = "https://translate.google.com/translate_a/element.js?cb=tm_googleTranslateElementInit";
+    document.body.appendChild(script);
+}
+
+// Google Translate callback
+function tm_googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,es,fr,de,zh,ja',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
 }
 
 // Load locations from JSON file
@@ -21,64 +44,27 @@ async function tm_loadLocations() {
     try {
         const response = await fetch('data/locations.json');
         tm_locations = await response.json();
-        tm_displayLocations(tm_locations);
+        if (typeof tm_displayLocations === 'function') {
+            tm_displayLocations(tm_locations);
+        }
     } catch (error) {
         console.error('Error loading locations:', error);
     }
 }
 
-// Filter markers based on selected types
-function tm_filterMarkers() {
-    const selectedTypes = Array.from(document.querySelectorAll('input[name="tm_placeType"]:checked')).map(el => el.value);
-
-    // Hide all markers first
-    Object.values(tm_markers).flat().forEach(marker => marker.setMap(null));
-
-    // Show only selected types
-    selectedTypes.forEach(type => {
-        if (tm_markers[type]) {
-            tm_markers[type].forEach(marker => marker.setMap(tm_map));
-        }
-    });
-}
-
-// Initialize language and currency dropdowns
-function tm_initLanguageCurrency() {
-    const languages = ['English', 'French', 'Spanish', 'German', 'Japanese'];
+// Initialize currency dropdown
+function tm_initCurrency() {
     const currencies = ['GBP', 'USD', 'EUR', 'JPY', 'AUD'];
-
-    const langSelect = document.getElementById('tm_languageSelect');
     const currSelect = document.getElementById('tm_currencySelect');
-
-    languages.forEach(lang => {
-        const option = document.createElement('option');
-        option.value = lang.toLowerCase();
-        option.textContent = lang;
-        langSelect.appendChild(option);
-    });
-
     currencies.forEach(curr => {
         const option = document.createElement('option');
         option.value = curr;
         option.textContent = curr;
         currSelect.appendChild(option);
     });
-
-    // Set default to English and GBP
-    langSelect.value = 'english';
     currSelect.value = 'GBP';
-
-    // Add event listeners for changes
-    langSelect.addEventListener('change', async (e) => {
-        // In a real app, we would translate content here
-        console.log('Language changed to:', e.target.value);
-    });
-
-    currSelect.addEventListener('change', async (e) => {
-        // In a real app, we would convert prices here
-        console.log('Currency changed to:', e.target.value);
-    });
 }
+
 
 // Tab functionality
 function tm_openTab(evt, tabName) {
@@ -95,10 +81,9 @@ function tm_openTab(evt, tabName) {
     document.getElementById(tabName).classList.add('tm_active');
     evt.currentTarget.classList.add('tm_active');
 
-    // Trigger resize for maps when tab changes
-    if (tabName === 'tm_placesTab' && tm_map) {
+    if (tabName === 'tm_placesTab' && typeof google !== 'undefined' && tm_map) {
         setTimeout(() => google.maps.event.trigger(tm_map, 'resize'), 100);
-    } else if (tabName === 'tm_directionsTab' && tm_directionsMap) {
+    } else if (tabName === 'tm_directionsTab' && typeof google !== 'undefined' && tm_directionsMap) {
         setTimeout(() => google.maps.event.trigger(tm_directionsMap, 'resize'), 100);
     }
 }
