@@ -44,19 +44,67 @@
     <main id="tm_mainContent">
         <div class="tm_tabContainer">
             <div class="tm_tabButtons">
-                <button class="tm_tabButton tm_active" onclick="tm_openTab(event, 'tm_placesTab')">Explore</button>
+                <button class="tm_tabButton tm_active" onclick="tm_openTab(event, 'tm_homeTab')">Home</button>
+                <button class="tm_tabButton" onclick="tm_openTab(event, 'tm_placesTab')">Explore</button>
                 <button class="tm_tabButton" onclick="tm_openTab(event, 'tm_directionsTab')">Plan Route</button>
             </div>
 
-            <div id="tm_placesTab" class="tm_tabContent tm_active">
+            <div id="tm_homeTab" class="tm_tabContent tm_active">
+                <section class="tm_section">
+                    <h2>Wimbledon Stadiums</h2>
+                    <div class="tm_stadiumGrid" id="tm_stadiumCards"></div>
+
+                    <div class="tm_videoSection">
+                        <h2>Wimbledon Guides & Tours</h2>
+                        <div class="tm_videoGrid">
+                            <div class="tm_videoContainer">
+                                <h3>Spring Walking Tour</h3>
+                                <iframe class="tm_responsiveVideo"
+                                        src="https://www.youtube.com/embed/VTA-Wzu3xB8"
+                                        title="YouTube video player"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen>
+                                </iframe>
+                                <p>Explore Wimbledon in spring with this walking tour</p>
+                            </div>
+
+                            <div class="tm_videoContainer">
+                                <h3>Club & Museum Tour</h3>
+                                <iframe class="tm_responsiveVideo"
+                                        src="https://www.youtube.com/embed/uy95qwRGtHA"
+                                        title="YouTube video player"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen>
+                                </iframe>
+                                <p>Behind-the-scenes look at the All England Club</p>
+                            </div>
+
+                            <div class="tm_videoContainer">
+                                <h3>First Timer's Guide</h3>
+                                <iframe class="tm_responsiveVideo"
+                                        src="https://www.youtube.com/embed/zJNswlEt5DQ"
+                                        title="YouTube video player"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen>
+                                </iframe>
+                                <p>Essential tips for attending Wimbledon</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="tm_placesTab" class="tm_tabContent ">
                 <div class="tm_filterControls">
                     <div class="tm_filterGroup">
-                        <label><input type="checkbox" name="tm_placeType" value="stadium"> Tennis Venues</label>
+                        <label><input type="checkbox" name="tm_placeType" value="stadium" checked > Tennis Venues</label>
                         <label><input type="checkbox" name="tm_placeType" value="hotel"> Hotels</label>
                         <label><input type="checkbox" name="tm_placeType" value="restaurant"> Restaurants</label>
                         <label><input type="checkbox" name="tm_placeType" value="attraction"> Attractions</label>
-                        <button class="tm_button" onclick="tm_toggleAllFilters(true)">Select All</button>
-                        <button class="tm_button" onclick="tm_toggleAllFilters(false)">Deselect All</button>
+                        <button class="tm_button" onclick="tm_toggleAllFilters()">Deselect All</button>
                         <button class="tm_button" onclick="tm_centerMap()">Center Map</button>
                     </div>
                     <button class="tm_button" onclick="tm_togglePoi()">Toggle Points of Interest</button>

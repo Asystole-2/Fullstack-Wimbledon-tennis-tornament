@@ -1,18 +1,41 @@
-// Global variables
 let tm_locations = [];
 let tm_map, tm_directionsMap, tm_markers = { stadium: [], hotel: [], restaurant: [], attraction: [] };
 let tm_directionsService, tm_directionsRenderer, tm_infoWindow, tm_waypoints = [], tm_poiVisible = true;
+let tm_allSelected = true
 
+
+// Update tm_toggleAllFilters function
+function tm_toggleAllFilters() {
+    tm_allSelected = !tm_allSelected;
+    const checkboxes = document.querySelectorAll('.tm_filterGroup input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = tm_allSelected;
+    });
+    tm_filterMarkers();
+
+    // Update button text
+    const button = document.querySelector('.tm_button[onclick="tm_toggleAllFilters()"]');
+    button.textContent = tm_allSelected ? 'Deselect All' : 'Select All';
+}
 // Initialize app
 async function tm_initMap() {
     tm_initGoogleTranslate();
     await tm_loadLocations();
     tm_initMainMap();
     tm_initDirectionsMap();
+    tm_createStadiumCards();
 
+    // Check all filters by default
     document.querySelectorAll('input[name="tm_placeType"]').forEach(checkbox => {
+        checkbox.checked = true;
         checkbox.addEventListener('change', tm_filterMarkers);
     });
+    // Show all markers initially
+    tm_filterMarkers();
+
+    // Set initial button state
+    const button = document.querySelector('.tm_button[onclick="tm_toggleAllFilters()"]');
+    button.textContent = 'Deselect All';
 }
 
 function tm_initGoogleTranslate() {
@@ -93,12 +116,65 @@ function tm_createCustomMarker(location) {
 // Filter markers
 function tm_filterMarkers() {
     const selectedTypes = Array.from(document.querySelectorAll('input[name="tm_placeType"]:checked')).map(el => el.value);
+
+    // Hide all markers first
     Object.values(tm_markers).flat().forEach(marker => marker.setMap(null));
-    selectedTypes.forEach(type => {
-        if (tm_markers[type]) {
-            tm_markers[type].forEach(marker => marker.setMap(tm_map));
-        }
+
+    // Show selected markers
+    if(selectedTypes.length > 0) {
+        selectedTypes.forEach(type => {
+            if (tm_markers[type]) {
+                tm_markers[type].forEach(marker => marker.setMap(tm_map));
+            }
+        });
+    }
+    // Show all markers if nothing is selected (initial state)
+    else {
+        Object.values(tm_markers).flat().forEach(marker => marker.setMap(tm_map));
+    }
+}
+function tm_createStadiumCards() {
+    const container = document.getElementById('tm_stadiumCards');
+    container.innerHTML = '';
+
+    const stadiums = tm_locations.filter(loc => loc.type === 'stadium');
+
+    stadiums.forEach(stadium => {
+        const card = document.createElement('div');
+        card.className = 'tm_stadiumCard';
+        card.innerHTML = `
+            <img src="images/attractions/${stadium.image}" alt="${stadium.name}" class="tm_cardImage">
+            <div class="tm_cardContent">
+                <h3 class="tm_cardTitle">${stadium.name}</h3>
+                <p>${stadium.description}</p>
+                <div class="tm_cardPrice">${stadium.price}</div>
+                <button class="tm_cardButton" onclick="tm_showOnMap(${stadium.id})">View on Map</button>
+            </div>
+        `;
+        container.appendChild(card);
     });
+}
+
+function tm_showOnMap(stadiumId) {
+    // Switch to Explore tab
+    document.querySelector('[onclick="tm_openTab(event, \'tm_placesTab\')"]').click();
+
+    // Find the stadium and its marker
+    const stadium = tm_locations.find(loc => loc.id === stadiumId);
+    const marker = tm_markers.stadium.find(m => m.title === stadium.name);
+
+    if (marker) {
+        // Center map on marker
+        tm_map.panTo(marker.getPosition());
+        tm_map.setZoom(17);
+
+        // Open info window
+        tm_showLocationDetails(stadium);
+
+        // Add pulse animation
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(() => marker.setAnimation(null), 1500);
+    }
 }
 
 // Show location details
@@ -107,6 +183,8 @@ function tm_showLocationDetails(location) {
         <div class="tm_locationDetails">
             <h3>${location.name}</h3>
             <p>${location.address}</p>
+                        <p class="tm_cardPrice">${location.price}</p>
+
     `;
 
     if (location.image) {
@@ -132,18 +210,22 @@ function tm_calculateRoute(travelMode) {
         return;
     }
 
-    const waypoints = tm_waypoints.map(wp => ({
-        location: wp.position,
-        stopover: true
-    }));
+    // Filter valid waypoints and format locations correctly
+    const validWaypoints = tm_waypoints
+        .filter(wp => wp.location && wp.location.position)
+        .map(wp => ({
+            location: new google.maps.LatLng(wp.location.position.lat, wp.location.position.lng),
+            stopover: true
+        }));
 
     const request = {
         origin: start,
         destination: end,
-        waypoints: waypoints,
+        waypoints: validWaypoints,
         optimizeWaypoints: true,
         travelMode: google.maps.TravelMode[travelMode]
     };
+
 
     tm_directionsService.route(request, (response, status) => {
         if (status === 'OK') {
@@ -167,13 +249,18 @@ function tm_addWaypoint() {
 
     tm_locations.forEach(location => {
         const option = document.createElement('option');
-        option.value = JSON.stringify(location.position);
+        // option.value = JSON.stringify(location.position);
+        option.value = JSON.stringify(location)
         option.textContent = location.name;
         locationSelect.appendChild(option);
     });
-
     const waypointDiv = document.createElement('div');
     waypointDiv.className = 'tm_waypoint';
+
+    const infoButton = document.createElement('button');
+    infoButton.innerHTML = 'ℹ️'; // Information icon
+    infoButton.className = 'tm_infoButton';
+    infoButton.onclick = () => tm_showWaypointDetails(JSON.parse(locationSelect.value));
 
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
@@ -184,22 +271,43 @@ function tm_addWaypoint() {
     };
 
     waypointDiv.appendChild(locationSelect);
+    waypointDiv.appendChild(infoButton);
     waypointDiv.appendChild(removeButton);
     document.getElementById('tm_waypointsList').appendChild(waypointDiv);
 
     tm_waypoints.push({
         id: id,
-        position: null,
+        location: null,
         element: waypointDiv
     });
 
     locationSelect.addEventListener('change', (e) => {
         if (e.target.value) {
-            const position = JSON.parse(e.target.value);
+            const location = JSON.parse(e.target.value);
             const waypoint = tm_waypoints.find(wp => wp.id === id);
-            waypoint.position = position;
+            waypoint.location = location;
+            infoButton.disabled = false;
         }
     });
+}
+function tm_showWaypointDetails(location) {
+    const content = `
+        <div class="tm_waypointDetails">
+            <h3>${location.name}</h3>
+            <p>${location.address}</p>
+            ${location.price ? `<p class="tm_cardPrice">${location.price}</p>` : ''}
+            ${location.image ? `<img src="images/attractions/${location.image}" alt="${location.name}" style="max-width:200px; height:auto;">` : ''}
+            ${location.description ? `<p>${location.description}</p>` : ''}
+        </div>
+    `;
+
+    const infoWindow = new google.maps.InfoWindow({
+        content: content,
+        maxWidth: 300
+    });
+
+    infoWindow.setPosition(new google.maps.LatLng(location.position.lat, location.position.lng));
+    infoWindow.open(tm_directionsMap);
 }
 
 // Currency conversion function
