@@ -120,40 +120,45 @@ function tm_filterMarkers() {
     // Hide all markers first
     Object.values(tm_markers).flat().forEach(marker => marker.setMap(null));
 
-    // Show selected markers
-    if(selectedTypes.length > 0) {
+    // Show selected markers only if any types are selected
+    if (selectedTypes.length > 0) {
         selectedTypes.forEach(type => {
             if (tm_markers[type]) {
                 tm_markers[type].forEach(marker => marker.setMap(tm_map));
             }
         });
     }
-    // Show all markers if nothing is selected (initial state)
-    else {
-        Object.values(tm_markers).flat().forEach(marker => marker.setMap(tm_map));
-    }
 }
+
 function tm_createStadiumCards() {
     const container = document.getElementById('tm_stadiumCards');
     container.innerHTML = '';
 
-    const stadiums = tm_locations.filter(loc => loc.type === 'stadium');
+    fetch('data/locations.json')
+        .then(response => response.json())
+        .then(data => {
+            const stadiums = data.filter(item => item.type === 'stadium');
 
-    stadiums.forEach(stadium => {
-        const card = document.createElement('div');
-        card.className = 'tm_stadiumCard';
-        card.innerHTML = `
-            <img src="images/attractions/${stadium.image}" alt="${stadium.name}" class="tm_cardImage">
-            <div class="tm_cardContent">
-                <h3 class="tm_cardTitle">${stadium.name}</h3>
-                <p>${stadium.description}</p>
-                <div class="tm_cardPrice">${stadium.price}</div>
-                <button class="tm_cardButton" onclick="tm_showOnMap(${stadium.id})">View on Map</button>
-            </div>
+            stadiums.forEach(stadium => {
+                const card = document.createElement('div');
+                card.className = 'tm_card';
+
+                card.innerHTML = `
+          <img src="images/${stadium.image}" alt="${stadium.name}">
+          <div class="tm_cardContent">
+            <h3 class="tm_cardTitle">${stadium.name}</h3>
+            <p class="tm_cardDescription">${stadium.description}</p>
+            <button class="tm_cardButton" onclick="tm_showOnMap(${stadium.id})">View on Map</button>
+          </div>
+          <div class="tm_cardPrice">${stadium.price}</div>
         `;
-        container.appendChild(card);
-    });
+
+                container.appendChild(card);
+            });
+        })
+        .catch(error => console.error('Error loading JSON data:', error));
 }
+
 
 function tm_showOnMap(stadiumId) {
     // Switch to Explore tab
@@ -366,13 +371,13 @@ function tm_centerMap() {
         tm_map.setZoom(14);
     }
 }
-
-function tm_toggleAllFilters(checked) {
-    document.querySelectorAll('.tm_filterGroup input[type="checkbox"]').forEach(box => {
-        box.checked = checked;
-    });
-    tm_filterMarkers();
-}
+//
+// function tm_toggleAllFilters(checked) {
+//     document.querySelectorAll('.tm_filterGroup input[type="checkbox"]').forEach(box => {
+//         box.checked = checked;
+//     });
+//     tm_filterMarkers();
+// }
 
 function tm_hidePointsOfInterest() {
     tm_map.set('styles', [

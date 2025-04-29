@@ -6,7 +6,7 @@
     "position": { "lat": 51.4339, "lng": -0.2143 },
     "address": "Church Rd, Wimbledon, London SW19 5AE, UK",
     "description": "The prestigious venue for the Wimbledon Championships, the oldest tennis tournament in the world.",
-    "image": "wimbledon.jpg",
+    "image": "AllEnglandLawnTennisClub.png",
     "price": "£50-£250 per ticket"
   },
   {
@@ -16,7 +16,7 @@
     "position": { "lat": 51.4312, "lng": -0.2108 },
     "address": "Home Park Rd, Wimbledon, London SW19 7HR, UK",
     "description": "Adjacent to the All England Club with practice facilities used during the Championships.",
-    "image": "wimbledon-park.jpg",
+    "image": "WimbledonParkGolfClub.png",
     "price": "£25-£50 per session"
   },
   {
@@ -26,7 +26,7 @@
     "position": { "lat": 51.4342, "lng": -0.2138 },
     "address": "Church Rd, Wimbledon, London SW19 5AE, UK",
     "description": "Explore the history of tennis and Wimbledon through interactive exhibits and memorabilia.",
-    "image": "museum.jpg",
+    "image": "WimbledonLawnTennisMuseum.png",
     "price": "£15 per adult"
   },
   {
@@ -36,7 +36,7 @@
     "position": { "lat": 51.4287, "lng": -0.2203 },
     "address": "Durnsford Rd, Wimbledon, London SW19 8EW, UK",
     "description": "Premier tennis training facility with programs for all levels.",
-    "image": "academy.jpg",
+    "image": "WimbledonTennisAcademy.png",
     "price": "£30-£80 per lesson"
   },
   {
@@ -46,7 +46,7 @@
     "position": { "lat": 51.4229, "lng": -0.2065 },
     "address": "24 High St, Wimbledon, London SW19 5EA, UK",
     "description": "Traditional British pub serving classic dishes and local ales, popular with tennis fans.",
-    "image": "dogandfox.jpg",
+    "image": "dogandfox.png",
     "price": "£15-£30 per main"
   },
   {
@@ -156,7 +156,7 @@
     "position": { "lat": 51.4315, "lng": -0.2092 },
     "address": "Home Park Rd, Wimbledon, London SW19 7HR, UK",
     "description": "Public tennis courts available for hire near the All England Club.",
-    "image": "park-courts.jpg",
+    "image": "WimbledonParkTennisCourts.png",
     "price": "£10-£20 per hour"
   },
   {
@@ -216,7 +216,7 @@
     "position": { "lat": 51.4301, "lng": -0.2123 },
     "address": "Home Park Rd, Wimbledon, London SW19 7HR, UK",
     "description": "Olympic-standard athletics facility also used for tennis fitness training.",
-    "image": "athletics-track.jpg",
+    "image": "WimbledonParkAthleticsTrack.png",
     "price": "£5-£10 per session"
   },
   {

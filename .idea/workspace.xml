@@ -5,24 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="532d817a-df61-4173-be72-c1710fd4f111" name="Changes" comment="improvements">
-      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/f2e47cf82eeb44eb3154e419f7470c54b863b9f5/_base.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/f2e47cf82eeb44eb3154e419f7470c54b863b9f5/_components.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/f2e47cf82eeb44eb3154e419f7470c54b863b9f5/_layout.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/f2e47cf82eeb44eb3154e419f7470c54b863b9f5/_mixins.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/f2e47cf82eeb44eb3154e419f7470c54b863b9f5/_responsive.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/f2e47cf82eeb44eb3154e419f7470c54b863b9f5/_variables.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/f2e47cf82eeb44eb3154e419f7470c54b863b9f5/layout.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/f2e47cf82eeb44eb3154e419f7470c54b863b9f5/main.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/f2e47cf82eeb44eb3154e419f7470c54b863b9f5/mixins.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_base.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_components.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_layout.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_responsive.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/main.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/main.scss" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/AllEnglandLawnTennisClub.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/WimbledonLawnTennisMuseum.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/WimbledonParkAthleticsTrack.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/WimbledonParkGolfClub.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/WimbledonParkTennisCourts.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/WimbledonTennisAcademy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/common.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/dogandfox.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/hotel.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/ivy-cafe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/stables.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/wimbledon-club.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.sass-cache/a8ae86717936c4ed8a1321fd6751ba9798594fc2/main.scssc" beforeDir="false" afterPath="$PROJECT_DIR$/.sass-cache/a8ae86717936c4ed8a1321fd6751ba9798594fc2/main.scssc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/locations.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/locations.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/icons/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/a8ae86717936c4ed8a1321fd6751ba9798594fc2/main.scssc" beforeDir="false" afterPath="$PROJECT_DIR$/scss/.sass-cache/a8ae86717936c4ed8a1321fd6751ba9798594fc2/main.scssc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/scss/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/scss/main.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/main.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +43,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master2" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -66,6 +77,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/tsits/WebstormProjects/Fullstack-Wimbledon-tennis-tornament/images",
     "list.type.of.created.stylesheet": "SCSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -75,6 +87,14 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tsits\WebstormProjects\Fullstack-Wimbledon-tennis-tornament\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tsits\WebstormProjects\Fullstack-Wimbledon-tennis-tornament\images" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

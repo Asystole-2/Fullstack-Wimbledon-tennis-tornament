@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wimbledon Tennis Travel Guide</title>
+    <img src="images/icon.png"
+         height="387"
+         width="490"/>
     <meta name="description" content="Your guide to Wimbledon tennis tournament 2025">
     <link rel="stylesheet" href="css/main.css">
     <link rel="manifest" href="manifest.json">
@@ -52,45 +55,53 @@
             <div id="tm_homeTab" class="tm_tabContent tm_active">
                 <section class="tm_section">
                     <h2>Wimbledon Stadiums</h2>
-                    <div class="tm_stadiumGrid" id="tm_stadiumCards"></div>
+                    <div id="tm_stadiumCards" class="tm_cardGrid">
+                        <!-- Stadium cards will be dynamically inserted here -->
+                    </div>
 
                     <div class="tm_videoSection">
                         <h2>Wimbledon Guides & Tours</h2>
                         <div class="tm_videoGrid">
                             <div class="tm_videoContainer">
                                 <h3>Spring Walking Tour</h3>
-                                <iframe class="tm_responsiveVideo"
-                                        src="https://www.youtube.com/embed/VTA-Wzu3xB8"
-                                        title="YouTube video player"
-                                        frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen>
-                                </iframe>
-                                <p>Explore Wimbledon in spring with this walking tour</p>
+                                <div class="tm_responsiveVideo">
+                                    <iframe
+                                            src="https://www.youtube.com/embed/VTA-Wzu3xB8"
+                                            title="Spring Walking Tour"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen>
+                                    </iframe>
+                                </div>
+                                <p>Explore Wimbledon in spring with this walking tour.</p>
                             </div>
 
                             <div class="tm_videoContainer">
                                 <h3>Club & Museum Tour</h3>
-                                <iframe class="tm_responsiveVideo"
-                                        src="https://www.youtube.com/embed/uy95qwRGtHA"
-                                        title="YouTube video player"
-                                        frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen>
-                                </iframe>
-                                <p>Behind-the-scenes look at the All England Club</p>
+                                <div class="tm_responsiveVideo">
+                                    <iframe
+                                            src="https://www.youtube.com/embed/uy95qwRGtHA"
+                                            title="Club & Museum Tour"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen>
+                                    </iframe>
+                                </div>
+                                <p>Behind-the-scenes look at the All England Club.</p>
                             </div>
 
                             <div class="tm_videoContainer">
                                 <h3>First Timer's Guide</h3>
-                                <iframe class="tm_responsiveVideo"
-                                        src="https://www.youtube.com/embed/zJNswlEt5DQ"
-                                        title="YouTube video player"
-                                        frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen>
-                                </iframe>
-                                <p>Essential tips for attending Wimbledon</p>
+                                <div class="tm_responsiveVideo">
+                                    <iframe
+                                            src="https://www.youtube.com/embed/zJNswlEt5DQ"
+                                            title="First Timer's Guide"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen>
+                                    </iframe>
+                                </div>
+                                <p>Essential tips for attending Wimbledon.</p>
                             </div>
                         </div>
                     </div>
@@ -100,7 +111,7 @@
             <div id="tm_placesTab" class="tm_tabContent ">
                 <div class="tm_filterControls">
                     <div class="tm_filterGroup">
-                        <label><input type="checkbox" name="tm_placeType" value="stadium" checked > Tennis Venues</label>
+                        <label><input type="checkbox" name="tm_placeType" value="stadium" > Tennis Venues</label>
                         <label><input type="checkbox" name="tm_placeType" value="hotel"> Hotels</label>
                         <label><input type="checkbox" name="tm_placeType" value="restaurant"> Restaurants</label>
                         <label><input type="checkbox" name="tm_placeType" value="attraction"> Attractions</label>
