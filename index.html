@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wimbledon Tennis Travel Guide</title>
-    <img src="images/icon.png"
-         height="387"
-         width="490"/>
     <meta name="description" content="Your guide to Wimbledon tennis tournament 2025">
     <link rel="stylesheet" href="css/main.css">
     <link rel="manifest" href="manifest.json">
@@ -14,36 +11,61 @@
 </head>
 <body>
 <div id="tm_appContainer">
-    <header id="tm_mainHeader">
-        <h1>Wimbledon 2025 Travel Guide</h1>
+    <header class="tm_mainHeader">
+        <div class="header-left">
+            <img src="images/icon.png" alt="Site Icon" class="site-icon" />
+            <h1 class="site-title">Wimbledon Tennis Travel Guide</h1>
+        </div>
+        <div class="header-right">
+            <button class="icon-button" onclick="toggleModal('translateModal')">
+                <span class="material-icons">translate</span>
+            </button>
+            <button class="icon-button" onclick="toggleModal('currencyModal')">
+                <span class="material-icons">attach_money</span>
+            </button>
+        </div>
     </header>
 
-    <div id="google_translate_element"></div>
-    <section class="tm_section">
-        <h2>Currency Converter</h2>
-        <div class="tm_currencyConverter">
-            <div class="tm_inputGroup">
-                <input type="number" id="tm_amount" placeholder="Amount" value="1">
-                <select id="tm_fromCurrency">
-                    <option value="GBP">British Pound (GBP)</option>
-                    <option value="USD">US Dollar (USD)</option>
-                    <option value="EUR">Euro (EUR)</option>
-                    <option value="JPY">Japanese Yen (JPY)</option>
-                </select>
-            </div>
-            <div class="tm_inputGroup">
-                <input type="number" id="tm_convertedAmount" placeholder="Result" readonly>
-                <select id="tm_toCurrency">
-                    <option value="USD">US Dollar (USD)</option>
-                    <option value="GBP">British Pound (GBP)</option>
-                    <option value="EUR">Euro (EUR)</option>
-                    <option value="JPY">Japanese Yen (JPY)</option>
-                </select>
-            </div>
-            <button class="tm_button" onclick="tm_convertCurrency()">Convert</button>
-            <div class="tm_conversionRate"></div>
+    <!-- Translate Modal -->
+    <div id="translateModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleModal('translateModal')">&times;</span>
+            <div id="google_translate_element"></div>
         </div>
-    </section>
+    </div>
+
+    <!-- Currency Converter Modal -->
+    <div id="currencyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleModal('currencyModal')">&times;</span>
+            <section class="tm_section">
+                <h2>Currency Converter</h2>
+                <div class="tm_currencyConverter">
+                    <div class="tm_inputGroup">
+                        <input type="number" id="tm_amount" placeholder="Amount" value="1" />
+                        <select id="tm_fromCurrency">
+                            <option value="GBP">British Pound (GBP)</option>
+                            <option value="USD">US Dollar (USD)</option>
+                            <option value="EUR">Euro (EUR)</option>
+                            <option value="JPY">Japanese Yen (JPY)</option>
+                        </select>
+                    </div>
+                    <div class="tm_inputGroup">
+                        <input type="number" id="tm_convertedAmount" placeholder="Result" readonly />
+                        <select id="tm_toCurrency">
+                            <option value="USD">US Dollar (USD)</option>
+                            <option value="GBP">British Pound (GBP)</option>
+                            <option value="EUR">Euro (EUR)</option>
+                            <option value="JPY">Japanese Yen (JPY)</option>
+                        </select>
+                    </div>
+                    <button class="tm_button" onclick="tm_convertCurrency()">Convert</button>
+                    <div class="tm_conversionRate"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+
     <main id="tm_mainContent">
         <div class="tm_tabContainer">
             <div class="tm_tabButtons">

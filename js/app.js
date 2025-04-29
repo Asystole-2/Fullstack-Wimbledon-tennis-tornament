@@ -403,3 +403,17 @@ function tm_openTab(evt, tabName) {
         setTimeout(() => google.maps.event.trigger(tm_directionsMap, 'resize'), 100);
     }
 }
+function toggleModal(id) {
+    const modal = document.getElementById(id);
+    modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
+}
+
+// Close modals when clicking outside of them
+window.onclick = function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+}

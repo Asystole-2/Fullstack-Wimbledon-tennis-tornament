@@ -1,3 +1,67 @@
+.tm_mainHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc; }
+
+.site-icon {
+  height: 48px;
+  width: auto;
+  margin-right: 12px; }
+
+.site-title {
+  font-size: 1.8rem;
+  margin: 0; }
+
+.header-left {
+  display: flex;
+  align-items: center; }
+
+.site-title {
+  font-size: 2rem; }
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px; }
+
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); }
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  position: relative;
+  border-radius: 5px; }
+
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer; }
+
+.close:hover,
+.close:focus {
+  color: black; }
+
 body {
   font-family: "Arial", sans-serif;
   color: #333;
@@ -289,5 +353,11 @@ button {
   .tm_cardDescription {
     display: none;
     /* Hide description on small screens */ } }
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; }
 
 /*# sourceMappingURL=main.css.map */
