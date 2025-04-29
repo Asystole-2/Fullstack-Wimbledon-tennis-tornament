@@ -1,6 +1,256 @@
-@import 'variables';
-@import 'mixins';
-@import 'base';
-@import 'layout';
-@import 'components';
-@import 'responsive';
+// ================
+// Variables
+// ================
+// Colors
+$tm_primaryColor: #1a8917; // Wimbledon green
+$tm_secondaryColor: #f5f5f5;
+$tm_accentColor: #ffd700;
+$tm_textColor: #333;
+$tm_lightText: #fff;
+
+// Breakpoints
+$tm_mobileBreakpoint: 500px;
+$tm_tabletBreakpoint: 1000px;
+
+// Spacing
+$tm_baseSpacing: 1rem;
+$tm_smallSpacing: 0.5rem;
+
+// Fonts
+$tm_mainFont: 'Arial', sans-serif;
+$tm_headerFont: 'Georgia', serif;
+
+// ================
+// Mixins
+// ================
+@mixin tm_respondTo($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin tm_flexContainer($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin tm_cardStyle {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: $tm_baseSpacing;
+  margin-bottom: $tm_baseSpacing;
+}
+
+// ================
+// Base Styles
+// ================
+body {
+  font-family: $tm_mainFont;
+  color: $tm_textColor;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: $tm_headerFont;
+  color: $tm_primaryColor;
+}
+
+a {
+  color: $tm_primaryColor;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+// ================
+// Components
+// ================
+// Google Translate element
+#google_translate_element {
+  padding: 0.5rem;
+  background-color: $tm_primaryColor;
+  color: white;
+  text-align: center;
+
+  .goog-te-gadget {
+    font-family: $tm_mainFont;
+  }
+
+  .goog-te-combo {
+    padding: 0.3rem;
+    border-radius: 4px;
+    border: 1px solid $tm_secondaryColor;
+  }
+}
+
+// App structure
+#tm_appContainer {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+#tm_mainHeader {
+  background-color: $tm_primaryColor;
+  color: $tm_lightText;
+  padding: $tm_baseSpacing;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+    color: $tm_lightText;
+  }
+}
+
+#tm_mainContent {
+  padding: $tm_baseSpacing;
+}
+
+#tm_mainFooter {
+  background-color: $tm_primaryColor;
+  color: $tm_lightText;
+  text-align: center;
+  padding: $tm_smallSpacing;
+}
+
+// Tab system
+.tm_tabContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tm_tabButtons {
+  @include tm_flexContainer(row, flex-start);
+  border-bottom: 1px solid #ddd;
+
+  .tm_tabButton {
+    padding: $tm_smallSpacing $tm_baseSpacing;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+
+    &.tm_active {
+      border-bottom-color: $tm_primaryColor;
+      font-weight: bold;
+    }
+  }
+}
+
+.tm_tabContent {
+  display: none;
+  padding: $tm_baseSpacing 0;
+
+  &.tm_active {
+    display: block;
+  }
+}
+
+// Map and controls
+.tm_mapContainer {
+  width: 100%;
+  height: 500px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: $tm_baseSpacing;
+}
+
+.tm_button {
+  background-color: $tm_primaryColor;
+  color: white;
+  border: none;
+  padding: $tm_smallSpacing $tm_baseSpacing;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: darken($tm_primaryColor, 10%);
+  }
+}
+
+.tm_selectBox {
+  padding: $tm_smallSpacing;
+  margin-left: $tm_smallSpacing;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.tm_filterControls {
+  @include tm_flexContainer(row, space-between);
+  margin-bottom: $tm_baseSpacing;
+  flex-wrap: wrap;
+}
+
+.tm_filterGroup {
+  @include tm_flexContainer(row, flex-start);
+  flex-wrap: wrap;
+  gap: $tm_smallSpacing;
+}
+
+// Panels
+.tm_detailsPanel {
+  @include tm_cardStyle;
+}
+
+.tm_directionsPanel {
+  @include tm_cardStyle;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+// ================
+// Responsive Styles
+// ================
+@include tm_respondTo($tm_tabletBreakpoint) {
+  .tm_tabButtons {
+    flex-wrap: wrap;
+
+    .tm_tabButton {
+      flex: 1 0 auto;
+      text-align: center;
+    }
+  }
+
+  .tm_filterControls {
+    flex-direction: column;
+    gap: $tm_smallSpacing;
+  }
+
+  .tm_mapContainer {
+    height: 400px;
+  }
+}
+
+@include tm_respondTo($tm_mobileBreakpoint) {
+  #tm_mainHeader {
+    padding: $tm_smallSpacing;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  #tm_languageCurrency {
+    @include tm_flexContainer(column);
+    gap: $tm_smallSpacing;
+  }
+
+  .tm_mapContainer {
+    height: 300px;
+  }
+
+  .tm_transportButtons {
+    @include tm_flexContainer(row, space-around);
+
+    .tm_transportButton {
+      padding: $tm_smallSpacing;
+    }
+  }
+}
