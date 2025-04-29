@@ -13,7 +13,7 @@
 <div id="tm_appContainer">
     <header class="tm_mainHeader">
         <div class="header-left">
-            <img src="images/icon.png" alt="Site Icon" class="site-icon" />
+            <!--            <img src="images/icon.png" alt="Site Icon" class="site-icon" />-->
             <h1 class="site-title">Wimbledon Tennis Travel Guide</h1>
         </div>
         <div class="header-right">
@@ -29,7 +29,7 @@
     <!-- Translate Modal -->
     <div id="translateModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="toggleModal('translateModal')">&times;</span>
+            <span class="close" onclick="toggleModal('tm_translateModal')">&times;</span>
             <div id="google_translate_element"></div>
         </div>
     </div>
@@ -139,14 +139,29 @@
                         <label><input type="checkbox" name="tm_placeType" value="attraction"> Attractions</label>
                         <button class="tm_button" onclick="tm_toggleAllFilters()">Deselect All</button>
                         <button class="tm_button" onclick="tm_centerMap()">Center Map</button>
+                        <button class="tm_button" onclick="tm_togglePoi()">Toggle Points of Interest</button>
+
                     </div>
-                    <button class="tm_button" onclick="tm_togglePoi()">Toggle Points of Interest</button>
+                    <!-- Dropdown for smaller screens -->
+                    <div class="tm_filterDropdown">
+                        <button class="tm_button tm_dropdownBtn">Filters</button>
+                        <div class="tm_dropdownContent">
+                            <label><input type="checkbox" name="tm_placeType" value="stadium"> Tennis Venues</label>
+                            <label><input type="checkbox" name="tm_placeType" value="hotel"> Hotels</label>
+                            <label><input type="checkbox" name="tm_placeType" value="restaurant"> Restaurants</label>
+                            <label><input type="checkbox" name="tm_placeType" value="attraction"> Attractions</label>
+                            <button class="tm_button" onclick="tm_toggleAllFilters()">Deselect All</button>
+                            <button class="tm_button" onclick="tm_centerMap()">Center Map</button>
+                            <button class="tm_button" onclick="tm_togglePoi()">Toggle Points of Interest</button>
+                        </div>
+                    </div>
                 </div>
                 <div id="tm_map" class="tm_mapContainer"></div>
                 <div id="tm_locationDetails" class="tm_detailsPanel"></div>
             </div>
-
             <div id="tm_directionsTab" class="tm_tabContent">
+                <h3>Enter Your starting location and Destination to see map and route</h3>
+
                 <div class="tm_routeControls">
                     <div class="tm_routeInput">
                         <label>Start: <input type="text" id="tm_startPoint" placeholder="Starting location"></label>
@@ -165,6 +180,10 @@
                 </div>
                 <div id="tm_directionsMap" class="tm_mapContainer"></div>
                 <div id="tm_directionsPanel" class="tm_directionsPanel"></div>
+            </div>
+            <div id="tm_sidePanel" class="tm_sidePanel">
+                <span class="close" onclick="closeSidePanel()">&times;</span>
+                <div id="tm_sidePanelContent"></div>
             </div>
         </div>
     </main>

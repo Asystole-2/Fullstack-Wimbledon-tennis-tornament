@@ -33,7 +33,7 @@ async function tm_initMap() {
     // Show all markers initially
     tm_filterMarkers();
 
-    // Set initial button state
+    // Set the initial button state
     const button = document.querySelector('.tm_button[onclick="tm_toggleAllFilters()"]');
     button.textContent = 'Deselect All';
 }
@@ -184,27 +184,22 @@ function tm_showOnMap(stadiumId) {
 
 // Show location details
 function tm_showLocationDetails(location) {
-    let content = `
-        <div class="tm_locationDetails">
-            <h3>${location.name}</h3>
-            <p>${location.address}</p>
-                        <p class="tm_cardPrice">${location.price}</p>
-
-    `;
-
-    if (location.image) {
-        content += `<img src="images/attractions/${location.image}" alt="${location.name}" style="max-width:100%;">`;
-    }
-
-    if (location.description) {
-        content += `<p>${location.description}</p>`;
-    }
-
-    content += `</div>`;
-    tm_infoWindow.setContent(content);
-    tm_infoWindow.open(tm_map, tm_markers[location.type].find(m => m.title === location.name));
+    const content = `
+    <div class="tm_locationDetails">
+      <h3>${location.name}</h3>
+      <p>${location.address}</p>
+      <p class="tm_cardPrice">${location.price}</p>
+      ${location.image ? `<img src="images/${location.image}" alt="${location.name}" style="max-width:100%;">` : ''}
+      ${location.description ? `<p>${location.description}</p>` : ''}
+    </div>
+  `;
+    document.getElementById('tm_sidePanelContent').innerHTML = content;
+    document.getElementById('tm_sidePanel').classList.add('open');
 }
 
+function closeSidePanel() {
+    document.getElementById('tm_sidePanel').classList.remove('open');
+}
 // Route calculation
 function tm_calculateRoute(travelMode) {
     const start = document.getElementById('tm_startPoint').value;
@@ -371,13 +366,6 @@ function tm_centerMap() {
         tm_map.setZoom(14);
     }
 }
-//
-// function tm_toggleAllFilters(checked) {
-//     document.querySelectorAll('.tm_filterGroup input[type="checkbox"]').forEach(box => {
-//         box.checked = checked;
-//     });
-//     tm_filterMarkers();
-// }
 
 function tm_hidePointsOfInterest() {
     tm_map.set('styles', [
@@ -417,3 +405,9 @@ window.onclick = function(event) {
         }
     });
 }
+
+//selectors/checkboxes
+document.querySelector('.tm_dropdownBtn').addEventListener('click', function() {
+    const dropdownContent = document.querySelector('.tm_dropdownContent');
+    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+});
