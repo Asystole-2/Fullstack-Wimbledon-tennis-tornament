@@ -14,33 +14,8 @@
     <header id="tm_mainHeader">
         <h1>Wimbledon 2025 Travel Guide</h1>
     </header>
-
-    <div id="google_translate_element"></div>
-    <section class="tm_section">
-        <h2>Currency Converter</h2>
-        <div class="tm_currencyConverter">
-            <div class="tm_inputGroup">
-                <input type="number" id="tm_amount" placeholder="Amount" value="1">
-                <select id="tm_fromCurrency">
-                    <option value="GBP">British Pound (GBP)</option>
-                    <option value="USD">US Dollar (USD)</option>
-                    <option value="EUR">Euro (EUR)</option>
-                    <option value="JPY">Japanese Yen (JPY)</option>
-                </select>
-            </div>
-            <div class="tm_inputGroup">
-                <input type="number" id="tm_convertedAmount" placeholder="Result" readonly>
-                <select id="tm_toCurrency">
-                    <option value="USD">US Dollar (USD)</option>
-                    <option value="GBP">British Pound (GBP)</option>
-                    <option value="EUR">Euro (EUR)</option>
-                    <option value="JPY">Japanese Yen (JPY)</option>
-                </select>
-            </div>
-            <button class="tm_button" onclick="tm_convertCurrency()">Convert</button>
-            <div class="tm_conversionRate"></div>
-        </div>
-    </section>
+    <div id="google_translate_element" class="tm_translateContainer"></div>
+<!--    <div id="google_translate_element"></div>-->
     <main id="tm_mainContent">
         <div class="tm_tabContainer">
             <div class="tm_tabButtons">
@@ -51,6 +26,32 @@
 
             <div id="tm_homeTab" class="tm_tabContent tm_active">
                 <section class="tm_section">
+                    <section class="tm_section">
+                        <h2>Currency Converter</h2>
+                        <div class="tm_currencyConverter">
+                            <div class="tm_inputGroup">
+                                <input type="number" id="tm_amount" placeholder="Amount" value="1">
+                                <select id="tm_fromCurrency">
+                                    <option value="GBP">British Pound (GBP)</option>
+                                    <option value="USD">US Dollar (USD)</option>
+                                    <option value="EUR">Euro (EUR)</option>
+                                    <option value="JPY">Japanese Yen (JPY)</option>
+                                </select>
+                            </div>
+                            <div class="tm_inputGroup">
+                                <input type="number" id="tm_convertedAmount" placeholder="Result" readonly>
+                                <select id="tm_toCurrency">
+                                    <option value="USD">US Dollar (USD)</option>
+                                    <option value="GBP">British Pound (GBP)</option>
+                                    <option value="EUR">Euro (EUR)</option>
+                                    <option value="JPY">Japanese Yen (JPY)</option>
+                                </select>
+                            </div>
+                            <button class="tm_button" onclick="tm_convertCurrency()">Convert</button>
+                            <div class="tm_conversionRate"></div>
+                        </div>
+                    </section>
+
                     <h2>Wimbledon Stadiums</h2>
                     <div class="tm_stadiumGrid" id="tm_stadiumCards"></div>
 

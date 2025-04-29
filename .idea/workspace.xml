@@ -4,25 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="532d817a-df61-4173-be72-c1710fd4f111" name="Changes" comment="improvements">
-      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/f2e47cf82eeb44eb3154e419f7470c54b863b9f5/_base.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/f2e47cf82eeb44eb3154e419f7470c54b863b9f5/_components.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/f2e47cf82eeb44eb3154e419f7470c54b863b9f5/_layout.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/f2e47cf82eeb44eb3154e419f7470c54b863b9f5/_mixins.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/f2e47cf82eeb44eb3154e419f7470c54b863b9f5/_responsive.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/f2e47cf82eeb44eb3154e419f7470c54b863b9f5/_variables.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/f2e47cf82eeb44eb3154e419f7470c54b863b9f5/layout.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/f2e47cf82eeb44eb3154e419f7470c54b863b9f5/main.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/f2e47cf82eeb44eb3154e419f7470c54b863b9f5/mixins.scssc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_base.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_components.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_layout.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_responsive.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/main.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/main.scss" beforeDir="false" />
+    <list default="true" id="532d817a-df61-4173-be72-c1710fd4f111" name="Changes" comment="merged scss">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/a8ae86717936c4ed8a1321fd6751ba9798594fc2/main.scssc" beforeDir="false" afterPath="$PROJECT_DIR$/scss/.sass-cache/a8ae86717936c4ed8a1321fd6751ba9798594fc2/main.scssc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/scss/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/scss/main.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/main.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1745927867742</updated>
       <workItem from="1745927869614" duration="76000" />
-      <workItem from="1745927973799" duration="2536000" />
+      <workItem from="1745927973799" duration="3783000" />
     </task>
     <task id="LOCAL-00001" summary="improvements">
       <option name="closed" value="true" />
@@ -100,7 +88,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745929283360</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="merged scss">
+      <option name="closed" value="true" />
+      <created>1745931020508</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1745931020508</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,6 +104,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="improvements" />
+    <MESSAGE value="merged scss" />
+    <option name="LAST_COMMIT_MESSAGE" value="merged scss" />
   </component>
 </project>
