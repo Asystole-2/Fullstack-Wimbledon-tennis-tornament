@@ -131,6 +131,10 @@
             </div>
 
             <div id="tm_placesTab" class="tm_tabContent ">
+                <div class="tm_searchContainer">
+                    <input type="text" id="tm_searchInput" placeholder="Search for places (e.g., ATM, restaurant)">
+                    <button onclick="tm_searchPlaces()">Search</button>
+                </div>
                 <div class="tm_filterControls">
                     <div class="tm_filterGroup">
                         <label><input type="checkbox" name="tm_placeType" value="stadium" > Tennis Venues</label>
@@ -164,9 +168,16 @@
 
                 <div class="tm_routeControls">
                     <div class="tm_routeInput">
-                        <label>Start: <input type="text" id="tm_startPoint" placeholder="Starting location"></label>
-                        <label>End: <input type="text" id="tm_endPoint" placeholder="Destination"></label>
+                        <div class="tm_inputGroup">
+                            <label for="tm_startPoint">Start:</label>
+                            <input type="text" id="tm_startPoint" placeholder="Starting location">
+                        </div>
+                        <div class="tm_inputGroup">
+                            <label for="tm_endPoint">End:</label>
+                            <input type="text" id="tm_endPoint" placeholder="Destination">
+                        </div>
                     </div>
+
                     <div class="tm_transportButtons">
                         <button class="tm_transportButton" onclick="tm_calculateRoute('DRIVING')"><i class="material-icons">directions_car</i></button>
                         <button class="tm_transportButton" onclick="tm_calculateRoute('TRANSIT')"><i class="material-icons">directions_bus</i></button>

@@ -530,7 +530,120 @@ button {
     width: 35px;
     height: 35px;
   }
+}.tm_transportButtons {
+   display: flex;
+   justify-content: center;
+   gap: 1rem;
+   flex-wrap: wrap;
+   padding: 1rem;
+ }
+
+.tm_transportButton {
+  background-color: #ffffff;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  padding: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
+.tm_transportButton:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .tm_transportButtons {
+    align-items: center;
+  }
+}
+.tm_routeInput {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tm_inputGroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+.tm_inputGroup label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.tm_inputGroup input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.tm_inputGroup input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+.tm_searchContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  gap: 10px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+.tm_searchContainer input[type="text"] {
+  flex: 1 1 300px;
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.tm_searchContainer input[type="text"]:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+.tm_searchContainer button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tm_searchContainer button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 500px) {
+  .tm_searchContainer {
+    align-items: stretch;
+  }
+
+  .tm_searchContainer input[type="text"],
+  .tm_searchContainer button {
+    width: 100%;
+  }
+}
+
+
 /*# sourceMappingURL=main.css.map */
-vvvvvv

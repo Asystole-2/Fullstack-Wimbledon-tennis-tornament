@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="532d817a-df61-4173-be72-c1710fd4f111" name="Changes" comment="cards for stadiums">
+    <list default="true" id="532d817a-df61-4173-be72-c1710fd4f111" name="Changes" comment="latest">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/scss/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/scss/main.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/.sass-cache/a8ae86717936c4ed8a1321fd6751ba9798594fc2/main.scssc" beforeDir="false" afterPath="$PROJECT_DIR$/scss/.sass-cache/a8ae86717936c4ed8a1321fd6751ba9798594fc2/main.scssc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +92,7 @@
       <updated>1745927867742</updated>
       <workItem from="1745927869614" duration="76000" />
       <workItem from="1745927973799" duration="2536000" />
-      <workItem from="1745970884197" duration="81000" />
+      <workItem from="1745970884197" duration="4757000" />
     </task>
     <task id="LOCAL-00001" summary="improvements">
       <option name="closed" value="true" />
@@ -111,7 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745956396617</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="latest">
+      <option name="closed" value="true" />
+      <created>1745971011379</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1745971011379</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +127,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="improvements" />
     <MESSAGE value="cards for stadiums" />
-    <option name="LAST_COMMIT_MESSAGE" value="cards for stadiums" />
+    <MESSAGE value="latest" />
+    <option name="LAST_COMMIT_MESSAGE" value="latest" />
   </component>
 </project>

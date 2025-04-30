@@ -411,3 +411,54 @@ document.querySelector('.tm_dropdownBtn').addEventListener('click', function() {
     const dropdownContent = document.querySelector('.tm_dropdownContent');
     dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
 });
+let tm_searchMarkers = [];
+
+function tm_searchPlaces() {
+    const query = document.getElementById('tm_searchInput').value;
+    if (!query) {
+        alert('Please enter a search term.');
+        return;
+    }
+
+    const service = new google.maps.places.PlacesService(tm_map);
+    const request = {
+        query: query,
+        fields: ['name', 'geometry', 'formatted_address'],
+    };
+
+    // Clear previous search markers
+    tm_searchMarkers.forEach(marker => marker.setMap(null));
+    tm_searchMarkers = [];
+
+    service.findPlaceFromQuery(request, (results, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK && results) {
+            results.forEach(place => {
+                if (place.geometry && place.geometry.location) {
+                    const marker = new google.maps.Marker({
+                        map: tm_map,
+                        position: place.geometry.location,
+                        title: place.name,
+                    });
+
+                    marker.addListener('click', () => {
+                        tm_infoWindow.setContent(`
+                          <div>
+                            <strong>${place.name}</strong><br>
+                            ${place.formatted_address}
+                          </div>
+                        `);
+                        tm_infoWindow.open(tm_map, marker);
+                    });
+
+                    tm_searchMarkers.push(marker);
+                }
+            });
+
+            tm_map.setCenter(results[0].geometry.location);
+            tm_map.setZoom(14);
+        } else {
+            alert('No results found.');
+        }
+    });
+}
+
